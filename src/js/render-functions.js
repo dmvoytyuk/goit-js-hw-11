@@ -21,9 +21,9 @@ export function getHtmlImageList(iamgesList) {
             </a>
             <ul class="gallery-item-desc">
               <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Likes</span><span>${image.likes}</span></li>
-              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Views</span><span>${image.likes}</span></li>
-              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Comments</span><span>${image.likes}</span></li>
-              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Downloads</span><span>${image.likes}</span></li>
+              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Views</span><span>${image.views}</span></li>
+              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Comments</span><span>${image.comments}</span></li>
+              <li class="gallery-item-desc-item"><span class="gallery-item-desc-cap">Downloads</span><span>${image.downloads}</span></li>
             </ul>
           </li>`
       )
