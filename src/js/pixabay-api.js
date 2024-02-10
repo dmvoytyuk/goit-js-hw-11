@@ -1,24 +1,25 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-const galleryList = document.createElement('ul');
-document.body.prepend(galleryList);
-galleryList.classList.add('gallery');
-
-const imagesList = images
-  .map(
-    image =>
-      `<li class="gallery-item">
-            <a class="gallery-link" href="${image.original}">
-              <img src="${image.preview}" alt="${image.description}" data-source="${image.original}" width="360" height="200">
-            </a>
-          </li>`
-  )
-  .join('');
-
-galleryList.insertAdjacentHTML('afterbegin', imagesList);
-
-const gallery = new SimpleLightbox('.gallery a', {
-  captionDelay: 250,
-  captionsData: 'alt',
-});
+export default class pixabayApi {
+  BASE_URL = 'https://pixabay.com/api/';
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+  }
+  getImageList(query) {
+    const searchParams = new URLSearchParams({
+      key: this.apiKey,
+      q: query,
+      image_type: 'photo',
+      orientation: 'horizontal',
+      safesearch: 'true',
+    });
+    return fetch(`${this.BASE_URL}?${searchParams}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .catch(error => {
+        // console.log(error);
+      });
+  }
+}
