@@ -4,6 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import pixabayApi from './js/pixabay-api';
 import { renderGallery, getHtmlImageList } from './js/render-functions';
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const galleryList = document.querySelector('.gallery-list');
 const queryToSearch = document.querySelector('.search-form-input');
@@ -25,7 +26,6 @@ submitQuery.addEventListener('submit', e => {
     isLoaderVisible(loader, true);
     pixabay
       .getImageList(query)
-      .then()
       .then(imagesList => getHtmlImageList(imagesList.hits))
       .then(htmlImageList => renderGallery(htmlImageList, galleryList))
       .then(() => {

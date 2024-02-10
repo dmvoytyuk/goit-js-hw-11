@@ -19,7 +19,7 @@ export default class pixabayApi {
         return response.json();
       })
       .catch(error => {
-        // console.log(error);
+        console.log(error);
       });
   }
 }
